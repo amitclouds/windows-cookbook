@@ -6,8 +6,12 @@
 
 require 'spec_helper'
 
+RSpec.configure do |config|
+  config.platform = 'windows'
+  config.version  = '2012R2'
+end
 describe 'git-on-win::default' do
-  context 'When all attributes are default, on an unspecified platform' do
+  context 'run on windows 2012R2 platform' do
     let(:chef_run) do
       runner = ChefSpec::ServerRunner.new
       runner.converge(described_recipe)
@@ -15,6 +19,9 @@ describe 'git-on-win::default' do
 
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error
+    end
+    it 'installs git on winodws sever' do
+      expect(chef_run).to install_package('git')
     end
   end
 end

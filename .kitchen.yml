@@ -1,19 +1,25 @@
 ---
 driver:
-  name: vagrant
+  name: ec2
+  aws_ssh_key_id: kitchen
+  region: us-east-1
+  availability_zone: b
+  subnet_id: subnet-5480567e
+  instance_type: t2.micro
+  image_id: ami-bd3ba0aa
+ # image_id: ami-fce3c696
+  security_group_ids: ['sg-2695da5d']
+  retryable_tries: 120
 
 provisioner:
   name: chef_zero
 
-# Uncomment the following verifier to leverage Inspec instead of Busser (the
-# default verifier)
-# verifier:
-#   name: inspec
-#   format: doc
-
+transport:
+  ssh_key: ~/.ssh/kitchen
+  #username: ubuntu
 platforms:
-  - name: ubuntu-16.04
-  - name: centos-7.2
+  #- name: ubuntu-14.04
+  - name: windows-2012r2
 
 suites:
   - name: default
