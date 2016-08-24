@@ -1,5 +1,6 @@
 # Git-2.9.3-64bit installation Cookbook for windows
-### Overview/Requirement
+### Test kitchen with AWS EC2 Driver.
+#### Overview/Requirement
 
 Create a chef cookbook to install git  on a windows server.
 
@@ -8,6 +9,10 @@ Create a chef cookbook to install git  on a windows server.
 * AWS Account for EC2
 * AWS security credentials 
 * kitchen AWS EC2 Driver
+* AWS EC2 Private Key
+
+##Note:-
+####To use Kitchen with AWS EC2 Driver don't forget modify values accorindg to your AWS Environment.
 
 For more info:-
 
